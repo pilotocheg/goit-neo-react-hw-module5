@@ -1,0 +1,26 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #c55e89;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover,
+  &:global(.active) {
+    text-decoration: underline;
+  }
+}
