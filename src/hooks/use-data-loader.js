@@ -9,7 +9,7 @@ export const useDataLoader = (fetchFn) => {
     if (!fetchFn) {
       return;
     }
-
+    setData(null);
     setLoading(true);
 
     fetchFn()
