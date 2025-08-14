@@ -2,10 +2,10 @@ import { BeatLoader } from "react-spinners";
 
 import css from "./PageLoader.module.css";
 
-export default function PageLoader() {
+export default function Loader() {
   return (
     <div className={css.container}>
-      <BeatLoader />
+      <BeatLoader color="#667eea" />
     </div>
   );
 }

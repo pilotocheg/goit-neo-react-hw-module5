@@ -1,0 +1,165 @@
+.reviewsContainer {
+  padding: 32px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reviewCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #667eea;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.authorName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratingIcon {
+  color: #ffd700;
+  font-size: 1rem;
+}
+
+.ratingValue {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.reviewDate {
+  font-size: 0.9rem;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.reviewContent {
+  line-height: 1.7;
+}
+
+.reviewText {
+  font-size: 1rem;
+  color: #444;
+  margin: 0;
+  word-wrap: break-word;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar for review text */
+.reviewText::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reviewText::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.reviewText::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 3px;
+}
+
+.reviewText::-webkit-scrollbar-thumb:hover {
+  background: #5a6fd8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reviewsContainer {
+    padding: 24px 16px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .reviewCard {
+    padding: 20px;
+  }
+
+  .reviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .authorInfo {
+    width: 100%;
+  }
+
+  .reviewDate {
+    align-self: flex-end;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewsContainer {
+    padding: 20px 12px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .reviewCard {
+    padding: 16px;
+  }
+
+  .authorName {
+    font-size: 1.1rem;
+  }
+
+  .reviewText {
+    font-size: 0.95rem;
+    max-height: 250px;
+  }
+}

@@ -1,0 +1,73 @@
+.page {
+  padding: 20px;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1160px;
+  margin-bottom: 24px;
+}
+
+.goBackButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.goBackButton:hover {
+  background: white;
+  transform: translateY(-50%) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 50px;
+  }
+
+  .goBackButton {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: none;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  .title {
+    text-align: center;
+    width: 100%;
+  }
+}

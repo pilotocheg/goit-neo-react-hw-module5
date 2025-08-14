@@ -1,18 +1,41 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api.unsplash.com/";
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.headers.common["Authorization"] =
-  "Client-ID EVaeWSZXnLoA0M4Kztk372lz7uPdfKkK0mJlTwvHpo4";
-axios.defaults.headers.common["Accept-Version"] = "v1";
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTFiNmQ4YWQxZGVkMWFlMDgxMmI2YjlhODU5MzAwNSIsIm5iZiI6MTc1NTAxODc5NC44OTkwMDAyLCJzdWIiOiI2ODliNzYyYWFhMmY2M2M2MWM4ZWI4NmIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jDXmPa3uqIthvGxwQLq0IYwTejJfxSK03Cu9yBeSnUs";
 
-export const fetchImages = async (query, page, pageSize) => {
+const makeFetch = async (url, { errorTitle, ...options }) => {
   try {
-    const response = await axios.get("/search/photos", {
-      params: { query, page, per_page: pageSize },
-    });
+    const response = await axios.get(url, options);
     return response.data;
   } catch (error) {
-    console.error("Error fetching images:", error);
+    console.error(`${errorTitle}:`, error);
     throw error;
   }
 };
+
+export const fetchPopularMovies = () =>
+  makeFetch("/trending/movie/day", {
+    errorTitle: "Error fetching popular movies",
+  });
+
+export const searchMovies = (query) =>
+  makeFetch("/search/movie", {
+    errorTitle: "Error searching movies",
+    params: { query },
+  });
+
+export const fetchMovieDetails = (movieId) =>
+  makeFetch(`/movie/${movieId}`, {
+    errorTitle: "Error fetching movie details",
+  });
+
+export const fetchMovieCast = (movieId) =>
+  makeFetch(`/movie/${movieId}/credits`, {
+    errorTitle: "Error fetching movie cast",
+  });
+
+export const fetchMovieReviews = (movieId) =>
+  makeFetch(`/movie/${movieId}/reviews`, {
+    errorTitle: "Error fetching movie reviews",
+  });

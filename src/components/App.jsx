@@ -1,12 +1,13 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
+import { Toaster } from "react-hot-toast";
 
 import Navigation from "./Navigation";
-import MovieCast from "./MovieCast";
-import MovieReviews from "./MovieReviews";
+import Loader from "./Loader";
 import css from "./App.module.css";
-import PageLoader from "./PageLoader";
 
+const MovieCast = lazy(() => import("./MovieCast"));
+const MovieReviews = lazy(() => import("./MovieReviews"));
 const HomePage = lazy(() => import("../pages/HomePage"));
 const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage"));
@@ -17,7 +18,7 @@ export default function App() {
     <div className={css.app}>
       <Navigation />
 
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
@@ -28,6 +29,8 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+
+      <Toaster position="top-right" />
     </div>
   );
 }
